@@ -1,0 +1,29 @@
+<div class="image-preview" id ="imagePreview">
+    <img src="" alt="Image Preview" class="image-preview__image">
+    <span class="image-preview__default-text"></span>
+</div>
+
+
+
+
+
+<script>
+    FileRead(document.getElementById("file"))
+    .then(response => {
+        document.getElementById("img").src = response;
+    });
+    //gerar imagem em base64
+    fileRead = (input) => {
+        return new Promise(function(resolve, reject) {
+            if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                resolve(e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+            }
+            else
+            reject("");
+        });
+    }
+    </script>
